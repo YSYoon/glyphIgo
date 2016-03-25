@@ -21,7 +21,7 @@ Optionally, you can export a list of Unicode glyphs/characters,
 produced by the above commands,
 as an EPUB file for quick testing on an eReader. 
 
-
+* couple of misc. changes add by YSYoon (for personal use)
 
 ## Usage
 
@@ -60,6 +60,7 @@ optional arguments:
   -v, --verbose         verbose output
   -w, --nohumanreadable
                         verbose output without human readable messages
+  -x, --glyphsonly      list output with glyphs only (added by YSYoon)
   --adobe               use Adobe obfuscation algorithm
   --blocks              print range and name of Unicode blocks
   --compact             compact lookup output (Unicode character, name, and
@@ -155,6 +156,9 @@ exit codes:
 
   22. Subset font.ttf into rem.font.ttf by removing the glyphs appearing in list.txt
       $ glyphIgo.py subset -f font.ttf -p list.txt -o rem.font.ttf --exclude
+      
+  23. Make a file with list of glyph names and glyph names only (added by YSYoon)
+      $ ./glyphIgo.py list -f font.ttf -x > list.txt
 ```
 
 Please see [OUTPUT.md](OUTPUT.md) for usage examples with their actual output.
