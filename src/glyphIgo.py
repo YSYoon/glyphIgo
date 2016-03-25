@@ -305,6 +305,12 @@ class CustomParser:
             "action": "store_true"
         },
         {
+            "short": "-x",
+            "long": "--glyphsonly",
+            "help": "list output with glyphs only",
+            "action": "store_true"
+        },
+        {
             "short": None,
             "long": "--adobe",
             "help": "use Adobe obfuscation algorithm",
@@ -791,7 +797,7 @@ class GlyphIgo:
         sys.stderr.write("[ERROR] %s\n" % (s))
 
     def __print_info(self, s):
-        if not (("quiet" in self.__args) or ("nohumanreadable" in self.__args)):
+        if not (("quiet" in self.__args) or ("nohumanreadable" in self.__args) or ("glyphsonly" in self.__args)):
             print "[INFO] %s" % (s)
 
     def __get_ebook_char_list(self):
@@ -978,6 +984,11 @@ class GlyphIgo:
             for c in chars:
                 decCodePoint = ord(c[0])
                 print "%s" % (decCodePoint)
+        elif ("glyphsonly" in self.__args):
+            output = ""
+            for c in chars:
+                output += escape(c[0])
+            print "%s" % (output)
         else:
             for c in chars:
                 name = unicodedata.name(c[0], 'UNKNOWN NAME')
