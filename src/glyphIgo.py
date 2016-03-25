@@ -970,7 +970,7 @@ class GlyphIgo:
             ]
             for r in repl:
                 s = s.replace(r[0], r[1])
-            return s
+            return s.encode("utf-8")
         
         if ("sort" in self.__args):
             chars.sort(key=lambda x: -x[1])
